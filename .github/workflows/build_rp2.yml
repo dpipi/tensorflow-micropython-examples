@@ -105,7 +105,7 @@ jobs:
           # cd ..
 
           # PICO
-          cmake -S ports/rp2 -B build-PICO -DPICO_BUILD_DOCS=0 \
+          cmake -S ports/rp2 -B build-PICO -DPICO_BUILD_DOCS=0 -DMICROPY_BOARD=PICO_W\
                     -DUSER_C_MODULES=/home/runner/work/tensorflow-micropython-examples/tensorflow-micropython-examples/micropython-modules/micropython.cmake
 
 
@@ -192,12 +192,14 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: microlite-rp2-pico-firmware
+          # path: |
+          #   micropython/build-PICO/firmware.elf
+          #   micropython/build-PICO/firmware.bin
+          #   micropython/build-PICO/firmware.dis
+          #   micropython/build-PICO/firmware.elf.map
+          #   micropython/build-PICO/firmware.hex
+          #   micropython/build-PICO/firmware.uf2
           path: |
-            micropython/build-PICO/firmware.elf
-            micropython/build-PICO/firmware.bin
-            micropython/build-PICO/firmware.dis
-            micropython/build-PICO/firmware.elf.map
-            micropython/build-PICO/firmware.hex
             micropython/build-PICO/firmware.uf2
 
       # - name: Archive PIMORONI_PICOLIPO_4MB firmware
