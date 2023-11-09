@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v4
         with:
           python-version: 3.8
       - name: Install Pillow & Wave
@@ -32,7 +32,7 @@ jobs:
           pip install Pillow
           pip3 install Wave
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Prepare to Build Tensorflow Micropython Firmware for RP2
         run: |
           git submodule init
@@ -110,7 +110,7 @@ jobs:
 
 
           cd build-PICO
-          make
+          make BOARD=PICO_W
           cd ..          
 
           # # PIMORONI_PICOLIPO_4MB
