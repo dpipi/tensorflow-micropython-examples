@@ -105,12 +105,12 @@ jobs:
           # cd ..
 
           # PICO
-          cmake -S ports/rp2 -B build-PICO -DPICO_BUILD_DOCS=0 -DMICROPY_BOARD=PICO_W \
+          cmake -S ports/rp2 -B build-PICO -DPICO_BUILD_DOCS=0 \
                     -DUSER_C_MODULES=/home/runner/work/tensorflow-micropython-examples/tensorflow-micropython-examples/micropython-modules/micropython.cmake
 
 
           cd build-PICO
-          make
+          make BOARD=PICO_W
           cd ..          
 
           # # PIMORONI_PICOLIPO_4MB
